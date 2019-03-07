@@ -6,17 +6,15 @@ This module demonstrates simple LOOPS of the form:
 and also USING OBJECTS.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Ryo.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
-
 
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
-
-
+    draw_circles3()
 def print_sequence1():
     """
     Prints:
@@ -29,7 +27,7 @@ def print_sequence1():
        200
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this function, per its doc-string above.
+    # DONE: 2. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     # -------------------------------------------------------------------------
@@ -37,7 +35,8 @@ def print_sequence1():
     print('--------------------------------------------------')
     print('Running print_sequence1:')
     print('--------------------------------------------------')
-
+    for k in range(20 + 1):
+        print(k * 10)
 
 def draw_circles1():
     """
@@ -57,6 +56,15 @@ def draw_circles1():
     print('--------------------------------------------------')
     print('Running draw_circles1:  See graphics window')
     print('--------------------------------------------------')
+    window = rg.RoseWindow(400, 400)
+    center_point = rg.Point(200, 200)
+    for k in range(20 + 1):
+        circle = rg.Circle(center_point,k * 10)
+        circle.attach_to(window)
+    window.render()
+
+
+    window.close_on_mouse_click()
 
 
 def print_sequence2():
@@ -79,6 +87,10 @@ def print_sequence2():
     print('--------------------------------------------------')
     print('Running print_sequence2:')
     print('--------------------------------------------------')
+    for k  in range(18):
+        print(50 + (k * 20))
+
+
 
 
 def draw_circles2():
@@ -101,6 +113,14 @@ def draw_circles2():
     print('Running draw_circles2:  See graphics window')
     print('--------------------------------------------------')
 
+    window = rg.RoseWindow(400, 400)
+    for k in range(18):
+        center_point = rg.Point(50 + (k * 20), 100)
+        circle = rg.Circle(center_point,10)
+        circle.attach_to(window)
+    window.render()
+    window.close_on_mouse_click()
+
 
 def print_sequence3():
     """
@@ -121,6 +141,8 @@ def print_sequence3():
     print('--------------------------------------------------')
     print('Running print_sequence3:')
     print('--------------------------------------------------')
+    for k in range(100):
+        print(k + 1)
 
 
 def draw_circles3():
@@ -140,6 +162,17 @@ def draw_circles3():
     print('--------------------------------------------------')
     print('Running draw_circles3:  See graphics window')
     print('--------------------------------------------------')
+
+    window = rg.RoseWindow(300, 300)
+    center_point = rg.Point(200, 150)
+    for k in range(100):
+        circle = rg.Circle(center_point,k)
+        circle.attach_to(window)
+    window.render()
+
+
+    window.close_on_mouse_click()
+
 
 
 def print_cosines():
