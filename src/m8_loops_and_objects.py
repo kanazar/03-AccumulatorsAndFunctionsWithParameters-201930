@@ -10,11 +10,15 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
+import math
 
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
+    draw_circles1()
+    draw_circles2()
     draw_circles3()
+    draw_cosines_and_sines()
 def print_sequence1():
     """
     Prints:
@@ -209,6 +213,8 @@ def print_cosines():
     print('--------------------------------------------------')
     print('Running print_cosines:')
     print('--------------------------------------------------')
+    for k in range(101):
+        print(math.cos(k) * 80)
 
 
 def draw_cosines_and_sines():
@@ -234,6 +240,14 @@ def draw_cosines_and_sines():
     print('--------------------------------------------------')
     print('Running draw_cosines_and_sines:  See graphics window')
     print('--------------------------------------------------')
+    window = rg.RoseWindow(400, 400)
+    for k in range(101):
+        center_point = rg.Point(200 + (80 * math.cos(k)), 200 + (80 * math.sin(k)))
+        circle = rg.Circle(center_point, 10)
+        circle.attach_to(window)
+    window.render()
+
+    window.close_on_mouse_click()
 
 
 # -----------------------------------------------------------------------------
